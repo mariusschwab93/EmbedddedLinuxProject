@@ -4,19 +4,18 @@
 
 import sys
 
-try:
-    import tkinter as tk
 
-try:
-    import tkinter.ttk
+import tkinter as tk
+
+import tkinter.ttk
 
 
 def led_toggle():
-    print('gui_2_support.led_toggle')
+    print('gui_support.led_toggle')
     sys.stdout.flush()
 
 def quit():
-    print('gui_2_support.quit')
+    print('gui_support.quit')
     sys.stdout.flush()
     sys.exit()
 
