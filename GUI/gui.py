@@ -123,7 +123,7 @@ class Toplevel1:
         self.Labelframe2.configure(relief='groove')
         self.Labelframe2.configure(text='''Clock''')
         self.Labelframe2.configure(width=430)
-
+        
         self.Label1 = tk.Label(self.Labelframe2)
         self.Label1.place(relx=0.023, rely=0.261, height=73, width=415, bordermode='ignore')
         self.Label1.configure(activebackground="#ffffff")
@@ -133,10 +133,12 @@ class Toplevel1:
         self.Label1.configure(highlightcolor="#08ff31")
         self.Label1.configure(text='''Label''')
         self.Label1.configure(width=415)
-        while True:
-             time.sleep( 1 )
-             self.Label1[ "text" ]=time.strftime( "%d/%m/%Y %A %H:%M:%S" )
-             root.update()
+        gui_support.tick
+        
+        #while True:
+        #     time.sleep( 1 )
+         #    self.Label1[ "text" ]=time.strftime( "%d/%m/%Y %A %H:%M:%S" )
+          #   root.update(
 		
 
 
