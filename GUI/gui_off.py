@@ -1,8 +1,7 @@
 
 
+
 #! /usr/bin/env python3
-# code by Vinzenz Felder
-# Here are all elementary funktion for execution
 
 import sys
 import Adafruit_BBIO.GPIO as GPIO
@@ -16,11 +15,10 @@ LED1 = "P9_12"
 GPIO.setup(LED1, GPIO.OUT)
 
 
-def led_on():    
+def led_off():    
     print('Lights on')
     sys.stdout.flush()
-    GPIO.output(LED1, 1)
-
+    GPIO.output(LED1, 0)
 
 def quit():
     print('gui_support.quit')
@@ -39,10 +37,9 @@ def destroy_window():
     top_level.destroy()
     top_level = None
 
+
+
 if __name__ == '__main__':
     import gui.py
     gui.py.vp_start_gui()
-
-
-
 

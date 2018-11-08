@@ -1,26 +1,19 @@
-
-
 #! /usr/bin/env python3
 # code by Vinzenz Felder
 # Here are all elementary funktion for execution
 
 import sys
-import Adafruit_BBIO.GPIO as GPIO
-import time 
+
 
 import tkinter as tk
 
 import tkinter.ttk
-
-LED1 = "P9_12"
-GPIO.setup(LED1, GPIO.OUT)
+import Adaf
 
 
-def led_on():    
-    print('Lights on')
+def led_toggle():
+    print('gui_support.led_toggle')
     sys.stdout.flush()
-    GPIO.output(LED1, 1)
-
 
 def quit():
     print('gui_support.quit')
