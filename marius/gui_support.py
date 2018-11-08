@@ -28,6 +28,9 @@ def tempin():
    tempin = bus.read_byte_data(address2, 0)
     
    return tempin
+def edit():
+    print('gui_support.edit')
+    sys.stdout.flush()
 
 def led_toggle():
     print('gui_support.led_toggle')

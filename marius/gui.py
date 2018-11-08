@@ -101,6 +101,13 @@ class Toplevel1:
         self.Button1.configure(command=gui_support.quit)
         self.Button1.configure(text='''QUIT''')
 
+        self.Button4 = tk.Button(top)
+        self.Button4.place(relx=0.479, rely=0.1, height=91, width=72)
+        self.Button4.configure(activebackground="#d9d9d9") 
+        self.Button4.configure(command=gui_support.edit)
+        self.Button4.configure(text='''Edit''')
+        self.Button4.configure(width=72)
+
         self.Labelframe1 = tk.LabelFrame(top)
         self.Labelframe1.place(relx=0.049, rely=0.267, relheight=0.325, relwidth=0.176)
         self.Labelframe1.configure(relief='groove')
@@ -112,6 +119,7 @@ class Toplevel1:
         self.Label2.place(relx=0.056, rely=0.154, height=73, width=159, bordermode='ignore')
         self.Label2.configure(activebackground="#ededed")
         self.Label2.configure(background="#ffffff")
+        self.Label2.configure(font=font13)
        # self.Label2.configure(text='''indoor Temp''')
         self.Label2.configure(width=159)
         def temp_in():
@@ -123,6 +131,7 @@ class Toplevel1:
         self.Label3 = tk.Label(self.Labelframe1)
         self.Label3.place(relx=0.056, rely=0.564, height=73, width=159, bordermode='ignore')
         self.Label3.configure(background="#ffffff")
+        self.Label3.configure(font=font13)
  #       self.Label3.configure(text='''Labelb''')
         self.Label3.configure(width=159)
 
@@ -135,6 +144,7 @@ class Toplevel1:
         self.Labelframe2 = tk.LabelFrame(top)
         self.Labelframe2.place(relx=0.049, rely=0.067, relheight=0.192, relwidth=0.42)
         self.Labelframe2.configure(relief='groove')
+        self.Labelframe2.configure(font=font15)
         self.Labelframe2.configure(text='''Clock''')
         self.Labelframe2.configure(width=430)
 
