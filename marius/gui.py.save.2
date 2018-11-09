@@ -18,7 +18,6 @@ except ImportError:
     py3 = True
 
 import gui_support
-#import alarm2
 
 from tkinter import messagebox
 
@@ -83,15 +82,14 @@ class Toplevel1:
         self.Button2 = tk.Button(self.Frame1)
         self.Button2.place(relx=0.036, rely=0.369, height=133, width=257)
         self.Button2.configure(activebackground="#d82750")
-        self.Button2.configure(activeforeground="white")
+        self.Button2.configure(highlightbackground="#999496")
         self.Button2.configure(font=font11)
         self.Button2.configure(highlightbackground="#999496")
         self.Button2.configure(text='''PUMP''')
 
         self.Button3 = tk.Button(self.Frame1)
-        self.Button3.place(relx=0.036, rely=0.718, height=123, width=257)
+        self.Button3.place(relx=0.036, rely=0.718, height=133, width=257)
         self.Button3.configure(activebackground="#d82750")
-        self.Button3.configure(activeforeground="white")
         self.Button3.configure(font=font11)
         self.Button3.configure(highlightbackground="#999496")
         self.Button3.configure(text='''Button''')

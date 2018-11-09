@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 # code by Vinzenz Felder
 # Here are all elementary funktion for execution
-
+import os
 import sys
 
 
@@ -10,6 +10,7 @@ import tkinter as tk
 import tkinter.ttk
 import time
 import smbus
+import alarm2
 
 bus = smbus.SMBus(2)
 address1 = 0x48
@@ -28,8 +29,12 @@ def tempin():
    tempin = bus.read_byte_data(address2, 0)
     
    return tempin
+
 def edit():
     print('gui_support.edit')
+    #alarm2.MainApplication 
+    os.system('python alarm2.py')
+    #subprocess.Popen("alarm2.py")
     sys.stdout.flush()
 
 def led_toggle():
@@ -61,7 +66,6 @@ def destroy_window():
 if __name__ == '__main__':
     import gui.py
     gui.py.vp_start_gui()
-    
 
 
 

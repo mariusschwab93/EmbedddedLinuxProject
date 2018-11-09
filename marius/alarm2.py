@@ -7,9 +7,14 @@ from tkinter import Label
 from tkinter import Entry
 import time
 import datetime
+import Adafruit_BBIO.GPIO as GPIO
+
+LED2 = "P9_13"
+GPIO.setup(LED2, GPIO.OUT)
 
 #Define the Class to be used for this program. We will pass root into this as Frame.
 class MainApplication(Frame):
+#def MainApplication(Frame):
     wake = ""
     def __init__(self, master):
         master.geometry("800x400")
@@ -46,6 +51,8 @@ class MainApplication(Frame):
         if self.time1 == self.wake:
             self.label.config(bg = "green")
             self.master.config(bg = "green")
+            GPIO.output(LED2, 1)
+
         else:
             self.label.config(bg = "black")
             self.master.config(bg = "black")
