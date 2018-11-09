@@ -84,6 +84,7 @@ class Toplevel1:
         self.Button2.place(relx=0.036, rely=0.369, height=133, width=257)
         self.Button2.configure(activebackground="#d82750")
         self.Button2.configure(activeforeground="white")
+        self.Button2.configure(command=gui_support.relay_toggle)
         self.Button2.configure(font=font11)
         self.Button2.configure(highlightbackground="#999496")
         self.Button2.configure(text='''PUMP''')
