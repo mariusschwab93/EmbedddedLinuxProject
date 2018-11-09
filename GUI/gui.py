@@ -19,6 +19,8 @@ except ImportError:
 import gui_support
 import gui_off
 
+#global a
+#a=0
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -84,7 +86,7 @@ class Toplevel1:
         self.Button2.place(relx=0.036, rely=0.369, height=133, width=257)
         self.Button2.configure(activebackground="#d9d9d9")
         self.Button2.configure(font=font11)
-        self.Button2.configure(command=gui_off.led_off)
+        self.Button2.configure(command=gui_support.led_off)
         self.Button2.configure(text='''Light off''')
 
         self.Button3 = tk.Button(self.Frame1)

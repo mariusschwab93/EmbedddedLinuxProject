@@ -1,5 +1,4 @@
 
-
 #! /usr/bin/env python3
 # code by Vinzenz Felder
 # Here are all elementary funktion for execution
@@ -12,15 +11,33 @@ import tkinter as tk
 
 import tkinter.ttk
 
+#global a
+#a=0
 LED1 = "P9_12"
 GPIO.setup(LED1, GPIO.OUT)
 
 
-def led_on():    
-    print('Lights on')
+def led_on(a):    
+    #a=0
     sys.stdout.flush()
-    GPIO.output(LED1, 1)
+    #GPIO.output(LED1,1)
+    if a == 1 :
+    #if GPIO.output("LED1",0) == true :
+     #   time.sleep(0.1)
+      #  old_switch_state = 1
+        GPIO.output(LED1, 0)
+        a=0
+        print('Lights off')
+        
+    elif a == 0:
+        GPIO.output(LED1,1)
+        print('Lights on')
+        a=1
 
+def led_off():    
+    sys.stdout.flush()
+    GPIO.output(LED1,0)
+    print('Lights off')
 
 def quit():
     print('gui_support.quit')
