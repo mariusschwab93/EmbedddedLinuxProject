@@ -24,10 +24,11 @@ import gui_off
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
-    global val, w, root
+    global val, w, root, a
     root = tk.Tk()
+    a = 0
     top = Toplevel1 (root)
-    gui_support.init(root, top)
+    gui_support.init(root, top, a)
     root.mainloop()
 
 w = None

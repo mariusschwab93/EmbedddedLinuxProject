@@ -21,18 +21,18 @@ def led_on(a):
     #a=0
     sys.stdout.flush()
     #GPIO.output(LED1,1)
-    if a == 1 :
+    if a == 0 :
     #if GPIO.output("LED1",0) == true :
      #   time.sleep(0.1)
       #  old_switch_state = 1
         GPIO.output(LED1, 0)
-        a=0
-        print('Lights off')
-        
-    elif a == 0:
-        GPIO.output(LED1,1)
-        print('Lights on')
         a=1
+        print('Lights on')
+        
+    elif a == 1:
+        GPIO.output(LED1,1)
+        print('Lights off')
+        a=0
 
 def led_off():    
     sys.stdout.flush()
