@@ -24,21 +24,21 @@ import gui_off
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
-    global val, w, root, a
+    global val, w, root,
     root = tk.Tk()
-    a = 0
     top = Toplevel1 (root)
-    gui_support.init(root, top, a)
+    gui_support.init(root, top)
     root.mainloop()
 
 w = None
-def create_Toplevel1(root, *args, **kwargs):
+def create_Toplevel1(root, *args, **kwargs, a):
     '''Starting point when module is imported by another program.'''
-    global w, w_win, rt
+    global w, w_win, rt 
     rt = root
     w = tk.Toplevel (root)
+    int a
     top = Toplevel1 (w)
-    gui_support.init(w, top, *args, **kwargs)
+    gui_support.init(w, top, *args, **kwargs, a)
     return (w, top)
 
 

@@ -44,12 +44,14 @@ def quit():
     sys.stdout.flush()
     sys.exit()
 
-def init(top, gui, *args, **kwargs):
+def init(top, gui, *args, **kwargs, a):
     global w, top_level, root
     w = gui
+    a = 0
     top_level = top
     root = top
-
+    return a
+    
 def destroy_window():
     # Function which closes the window.
     global top_level
