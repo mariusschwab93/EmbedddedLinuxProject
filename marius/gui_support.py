@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
-# code by Vinzenz Felder
-# Here are all elementary funktion for execution
+# code by Vinzenz Felder/ Marius Schwab
+# Here are all elementary funktion for execution the main gui.py is pointing to the gui_support
 import os
 import sys
 
@@ -13,12 +13,12 @@ import smbus
 import alarm2
 import Adafruit_BBIO.GPIO as GPIO
 
-LED1 = "P9_12"
+LED1 = "P9_12"              # Gpio setup
 GPIO.setup(LED1, GPIO.OUT)
 LED2 = "P9_16"
 GPIO.setup(LED2,GPIO.OUT)
 
-bus = smbus.SMBus(2)
+bus = smbus.SMBus(2) # i2c setup for temperature
 address1 = 0x48
 address2 = 0x49
 b= 0
@@ -26,34 +26,29 @@ c= 0
 def tempout():
    
    tempout = bus.read_byte_data(address1, 0)
-   #temp2 = bus.read_byte_data(address2, 0)*(9/5)+32
+   #temp2 = bus.read_byte_data(address2, 0)*(9/5)+32 to display in Fahrenheit
     
    return tempout
 
 def tempin():
    
-   #tempout = bus.read_byte_data(address1, 0)*(9/5)+32
+   #tempout = bus.read_byte_data(address1, 0)*(9/5)+32 
    tempin = bus.read_byte_data(address2, 0)
     
    return tempin
 
-def edit():
+def edit():  # edit function for alarm of clock and edit
     print('gui_support.edit')
     #alarm2.MainApplication 
     os.system('python alarm2.py')
     #subprocess.Popen("alarm2.py")
     sys.stdout.flush()
 
-def led_toggle():
+def led_toggle(): # toggle function for relay 1 (Light)
     print('gui_support.led_toggle')
     sys.stdout.flush()
-    global b
-    a = 0    
-    #GPIO.output(LED1,1)
-    if a == 0 and b==1 :
-    #if GPIO.output("LED1",0) == true :
-     #   time.sleep(0.1)
-      #  old_switch_state = 1
+    global b    
+    if b==1 :
         GPIO.output(LED1, 0)
         print('Lights off')
         b=0
@@ -61,16 +56,12 @@ def led_toggle():
         GPIO.output(LED1,1)
         print('Lights on')
         b=1
-def relay_toggle():
+def relay_toggle(): # toggle function for relay 2 (Pump)
     print('gui_support.led_toggle')
     sys.stdout.flush()
     global c
         
-    #GPIO.output(LED1,1)
     if c==1 :
-    #if GPIO.output("LED1",0) == true :
-     #   time.sleep(0.1)
-      #  old_switch_state = 1
         GPIO.output(LED2, 0)
         print('Pump off')
         c=0
@@ -80,16 +71,16 @@ def relay_toggle():
         c=1
 
 
-def quit():
+def quit(): # gui quit function
     print('gui_support.quit')
     sys.stdout.flush()
     sys.exit()
 
-def ticktick():
+def ticktick(): # clock function
     time_string = time.strftime( "%d/%m/%Y %A %H:%M:%S" )
     return time_string
 
-def init(top, gui, *args, **kwargs):
+def init(top, gui, *args, **kwargs): # argument value function
     global w, top_level, root
     w = gui
     top_level = top

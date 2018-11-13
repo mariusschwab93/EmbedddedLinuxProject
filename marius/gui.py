@@ -1,6 +1,6 @@
 #! /usr/bin/env python
-#  code Vinzenz Felder
-# main class for creating GUI --> hardware execution is done through gui_2_support.py 
+#  code Vinzenz Felder / Marius Schwab
+# main class for creating GUI --> hardware execution is done through gui_support.py 
 
 import smbus
 import sys
@@ -57,10 +57,10 @@ class Toplevel1:
         _ana2color = '#d9d9d9' # X11 color: 'gray85' 
         font11 = "-family {DejaVu Sans} -size 17 -weight bold -slant "  \
             "roman -underline 0 -overstrike 0"
-        font14 = "-family {DejaVu Sans} -size 13 -weight bold -slant "  \
-            "roman -underline 0 -overstrike 0"
+        font14 = "-family {DejaVu Sans} -size 13 -weight bold -slant "  \ 
+            "roman -underline 0 -overstrike 0" # variable definition of font, size color
 
-        top.geometry("1024x600+1185+447")
+        top.geometry("1024x600+1185+447") # size window
         top.title("Camper Automation")
         top.configure(highlightcolor="black")
 
@@ -69,7 +69,7 @@ class Toplevel1:
         self.Frame1.configure(relief='groove')
         self.Frame1.configure(borderwidth="2")
         self.Frame1.configure(relief='groove')
-        self.Frame1.configure(width=275)
+        self.Frame1.configure(width=275) # frame definition
 
         self.LIGHT = tk.Button(self.Frame1)
         self.LIGHT.place(relx=0.036, rely=0.039, height=133, width=257)
@@ -78,16 +78,16 @@ class Toplevel1:
         self.LIGHT.configure(command=gui_support.led_toggle)
         self.LIGHT.configure(font=font11)
         self.LIGHT.configure(highlightbackground="#999496")
-        self.LIGHT.configure(text='''LIGHT''')
+        self.LIGHT.configure(text='''LIGHT''') # Button nr. 1 definition (LIGHT)
 
         self.Button2 = tk.Button(self.Frame1)
         self.Button2.place(relx=0.036, rely=0.369, height=133, width=257)
         self.Button2.configure(activebackground="#d82750")
         self.Button2.configure(activeforeground="white")
-        self.Button2.configure(command=gui_support.relay_toggle)
+        self.Button2.configure(command=gui_support.relay_toggle)# relation to gui_support.py for function
         self.Button2.configure(font=font11)
         self.Button2.configure(highlightbackground="#999496")
-        self.Button2.configure(text='''PUMP''')
+        self.Button2.configure(text='''PUMP''')  # Button nr. 2 definition (PUMP)
 
         self.Button3 = tk.Button(self.Frame1)
         self.Button3.place(relx=0.036, rely=0.718, height=123, width=257)
@@ -95,7 +95,7 @@ class Toplevel1:
         self.Button3.configure(activeforeground="white")
         self.Button3.configure(font=font11)
         self.Button3.configure(highlightbackground="#999496")
-        self.Button3.configure(text='''Button''')
+        self.Button3.configure(text='''Button''')   # Button nr. 3 definition (no function)
 
         self.Message1 = tk.Message(top)
         self.Message1.place(relx=0.068, rely=0.65, relheight=0.268, relwidth=0.45)
@@ -107,7 +107,7 @@ class Toplevel1:
         self.Button1.configure(activebackground="#d9d9d9")
         self.Button1.configure(background="#ff246d")
         self.Button1.configure(command=gui_support.quit)
-        self.Button1.configure(text='''QUIT''')
+        self.Button1.configure(text='''QUIT''')  # Button nr. 4 definition (quit)
 
         self.Button4 = tk.Button(top)
         self.Button4.place(relx=0.474, rely=0.0915, height=91, width=72)
@@ -115,13 +115,13 @@ class Toplevel1:
         self.Button4.configure(command=gui_support.edit)
         self.Button4.configure(highlightbackground="#999496")
         self.Button4.configure(text='''Edit''')
-        self.Button4.configure(width=72)
+        self.Button4.configure(width=72) # Button nr. 5 definition (edit)
 
         self.Labelframe1 = tk.LabelFrame(top)
         self.Labelframe1.place(relx=0.049, rely=0.267, relheight=0.325, relwidth=0.176)
         self.Labelframe1.configure(relief='groove')
         self.Labelframe1.configure(text='''Temp''')
-        self.Labelframe1.configure(width=180)
+        self.Labelframe1.configure(width=180) #labelframe for temperature labels
 
 
         self.Label2 = tk.Label(self.Labelframe1)
@@ -129,11 +129,10 @@ class Toplevel1:
         self.Label2.configure(activebackground="#ededed")
         self.Label2.configure(background="#ffffff")
         self.Label2.configure(font=font14)
-       # self.Label2.configure(text='''indoor Temp''')
-        self.Label2.configure(width=159)
+        self.Label2.configure(width=159) # Label to display temperature
         def temp_in():
                 self.Label2.configure(text="Inside:  "+str(gui_support.tempin())+" °C")
-                self.Label2.after(150,temp_in)
+                self.Label2.after(150,temp_in) # function to display the inside temperature
 
         temp_in()
 
@@ -141,12 +140,10 @@ class Toplevel1:
         self.Label3.place(relx=0.056, rely=0.564, height=73, width=159, bordermode='ignore')
         self.Label3.configure(background="#ffffff")
         self.Label3.configure(font=font14)
- #       self.Label3.configure(text='''Labelb''')
-        self.Label3.configure(width=159)
-
+        self.Label3.configure(width=159) # Label to display temperature outside
         def temp_out():
                 self.Label3.configure(text="Outside:  "+str(gui_support.tempout())+" °C")
-                self.Label3.after(150,temp_out)
+                self.Label3.after(150,temp_out) # function to display outside temperature
 
         temp_out()
 
@@ -155,7 +152,7 @@ class Toplevel1:
         self.Labelframe2.configure(relief='groove')
         self.Labelframe2.configure(font=font11)
         self.Labelframe2.configure(text='''Clock''')
-        self.Labelframe2.configure(width=430)
+        self.Labelframe2.configure(width=430) # clock labelframe
 
 
         self.Label1 = tk.Label(self.Labelframe2)
@@ -166,56 +163,15 @@ class Toplevel1:
         self.Label1.configure(highlightbackground="#17ff2e")
         self.Label1.configure(highlightcolor="#08ff31")
         self.Label1.configure(font=font11)
-        #self.Label1.configure(text='''Label''')
-        self.Label1.configure(width=415)
+        self.Label1.configure(width=415) # label to display clock
         def tick():
                 self.Label1.configure(text=gui_support.ticktick())
-                self.Label1.after(150,tick)
+                self.Label1.after(150,tick) # function to display clock , for all changing variables use after.function()
         tick()
 
 
-
-#        root.geometry("640x480")
- #       root.frame = Frame(root)
-  #      root.frame.pack(fill = "both")
-   #     label = Label(root, text= "Welcome", bg = "black", fg = "white", font=("Times", 50))
-    #    label.pack(side= "top", fill = "both", expand = 1)
-     #   root.title_font = tkfont.Font(family = "Times", size = 100, weight = "bold", slant = "italic")
-      #  root.title("Clock")
-
-
-
-       # def alarm():
-        #        current_time = tick()
-         #       wake_entry = Entry(root)
-          #      wake_entry.pack()
-           #     wake_entry_button = Button(root, text="Set Alarm")
-            #    wake_entry_button.pack(side = BOTTOM)
-             #   wake = wake_entry.get()
-              #  wake = time.strftime("%I:%M")
-               # if wake == gui_support.ticktick():
-                #       label.config(root, bg = "red")
-
-
-#	def tick(time1 = ""):
-
-    	#	time2 = time.strftime("%I:%M:%S")
-    	#	if time2 != time1:
-        #		time1 = time2
-        #		label.config(text = time1)
-    	#	label.after(200, tick)
-    	#	return time1
-
-#        button_alarm = Button(text = "Alarm")
- #       button_alarm.config(command = alarm)
-  #      button_alarm.pack()
-
-
-
-
-
 if __name__ == '__main__':
-    vp_start_gui()
+    vp_start_gui() #main function execution
 
 
 
