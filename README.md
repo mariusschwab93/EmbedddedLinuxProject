@@ -14,14 +14,14 @@ located here: https://elinux.org/ECE497_Project_-_Camper_Automation
 # Installation:
 for all necessary packages we included an install.sh file , please execute it before beginning
 
-the used packages for python are : tkinter, tcl, tk, Adafruit_GPIO, time, sys and smbus
+the used packages for python are : tkinter, tcl, tk, Adafruit_GPIO, time, sys, os and smbus
 
 
 # Setting up Scripts
-In order to have the sequence play on startup, you need to download crontab. Get internet on your pocketbeagle by using the ipMasquerade script as well as the pocketssh script. SSH into your beagle and run a ping google.com command to verify that you have internet on your pocketbeagle. 
-- All information on how you can use crontab to execute the autostart.sh file from the Beaglebone are here: https://billwaa.wordpress.com/2014/10/03/beaglebone-black-launch-python-script-at-boot-like-arduino-sketch/
+For setting up put the autostart.sh file on the Desktop and execute it with double touch. We had no success to set up the GUI file as boot. several problems accured.
+Please let me know if some one fixed the problem! We tried systemctl, crontab, autostart.No success
 
-# Heckster.io
+# Hackster.io
 The wikipedia for this project can be found here.
 https://www.hackster.io/DanielPatzer/smart-rv-96ddbd
 
