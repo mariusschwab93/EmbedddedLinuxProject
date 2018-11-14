@@ -10,7 +10,7 @@ import tkinter as tk
 import tkinter.ttk
 import time
 import smbus
-import alarm2
+#import alarm2
 import Adafruit_BBIO.GPIO as GPIO
 
 LED1 = "P9_12"              # Gpio setup
@@ -23,14 +23,15 @@ address1 = 0x48
 address2 = 0x49
 b= 0
 c= 0
-def tempout():
+
+def tempout(): #tempout function to read the temperature outside
    
    tempout = bus.read_byte_data(address1, 0)
    #temp2 = bus.read_byte_data(address2, 0)*(9/5)+32 to display in Fahrenheit
     
    return tempout
 
-def tempin():
+def tempin(): #tempin function to read the temperature inside
    
    #tempout = bus.read_byte_data(address1, 0)*(9/5)+32 
    tempin = bus.read_byte_data(address2, 0)
@@ -40,7 +41,7 @@ def tempin():
 def edit():  # edit function for alarm of clock and edit
     print('gui_support.edit')
     #alarm2.MainApplication 
-    os.system('python alarm2.py')
+    os.system('python3 /home/debian/EmbedddedLinuxProject/GUI_Camper/alarm2.py')
     #subprocess.Popen("alarm2.py")
     sys.stdout.flush()
 

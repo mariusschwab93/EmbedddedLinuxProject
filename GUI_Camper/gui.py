@@ -1,6 +1,9 @@
-#! /usr/bin/env python
+#!/usr/bin/env python3
 #  code Vinzenz Felder / Marius Schwab
 # main class for creating GUI --> hardware execution is done through gui_support.py 
+#import os
+
+#os.environ["DISPLAY"]= ":0"
 
 import smbus
 import sys
@@ -57,7 +60,7 @@ class Toplevel1:
         _ana2color = '#d9d9d9' # X11 color: 'gray85' 
         font11 = "-family {DejaVu Sans} -size 17 -weight bold -slant "  \
             "roman -underline 0 -overstrike 0"
-        font14 = "-family {DejaVu Sans} -size 13 -weight bold -slant "  \ 
+        font14 = "-family {DejaVu Sans} -size 13 -weight bold -slant "  \
             "roman -underline 0 -overstrike 0" # variable definition of font, size color
 
         top.geometry("1024x600+1185+447") # size window
